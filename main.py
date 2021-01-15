@@ -11,11 +11,7 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
-# command line argument
-ap = argparse.ArgumentParser()
-ap.add_argument("--mode",help="train/display")
-mode = ap.parse_args().mode
-
+mode= "train" //change mode to test for testing purpose
 
 # Define data generators
 train_dir = 'data/train'
@@ -86,7 +82,7 @@ if mode == "train":
     model.save_weights('model.h5')
 
 # emotions will be displayed on your face from the webcam feed
-elif mode == "display":
+elif mode == "test":
     model.load_weights('model.h5')
 
     # prevents openCL usage and unnecessary logging messages
